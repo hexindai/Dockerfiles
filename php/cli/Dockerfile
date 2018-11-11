@@ -5,6 +5,7 @@ LABEL maintainer="Wangshuai <wangshuai@hexindai.com>"
 RUN apk add --no-cache --virtual .persistent-deps \
             libbz2 \
             libpng \
+            libjpeg-turbo \
             icu \
             libldap \
             libmemcached \
