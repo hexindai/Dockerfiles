@@ -2,6 +2,15 @@ FROM php:7.2.12-cli-alpine3.8
 
 LABEL maintainer="Wangshuai <wangshuai@hexindai.com>"
 
+RUN apk add --no-cache --virtual .persistent-deps \
+            libbz2 \
+            libpng \
+            icu \
+            libldap \
+            libmemcached \
+            tidyhtml \
+            libxslt
+
 # install hexindai extensions
 RUN set -xe \
       && apk add --no-cache --virtual .build-hexindai-deps $PHPIZE_DEPS \
