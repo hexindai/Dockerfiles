@@ -4,8 +4,7 @@ LABEL maintainer="Wangshuai <wangshuai@hexindai.com>"
 
 # install hexindai extensions
 RUN set -xe \
-      && apk add --no-cache --virtual .build-hexindai-deps \
-                autoconf \
+      && apk add --no-cache --virtual .build-hexindai-deps $PHPIZE_DEPS \
                 freetype-dev \
                 libjpeg-turbo-dev \
                 libpng-dev \
