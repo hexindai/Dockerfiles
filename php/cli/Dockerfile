@@ -6,6 +6,7 @@ RUN apk add --no-cache --virtual .persistent-deps \
             libbz2 \
             libpng \
             libjpeg-turbo \
+            freetype \
             icu \
             libldap \
             libmemcached \
