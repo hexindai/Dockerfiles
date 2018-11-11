@@ -2,9 +2,9 @@ FROM php:7.2.12-fpm-alpine3.8
 
 LABEL maintainer="Wangshuai <wangshuai@hexindai.com>"
 
-# install core extensions
+# install hexindai extensions
 RUN set -xe \
-      && apk add --no-cache --virtual .build-core-deps \
+      && apk add --no-cache --virtual .build-hexindai-deps \
                 freetype-dev \
                 libjpeg-turbo-dev \
                 libpng-dev \
@@ -14,6 +14,8 @@ RUN set -xe \
                 libxml2-dev \
                 tidyhtml-dev \
                 libxslt-dev \
+                libmemcached-dev \
+                zlib-dev \
       && docker-php-ext-configure gd \
                 --with-freetype-dir=/usr/include/ \
                 --with-jpeg-dir=/usr/include/ \
@@ -40,13 +42,8 @@ RUN set -xe \
                 wddx \
                 xmlrpc \
                 xsl \
-                zip
-
-RUN set -xe \
-      && apk add --no-cache --virtual .build-memcached-deps \
-                libmemcached-dev \
-                zlib-dev \
-      \
+                zip \
       && pecl install memcached \
       && pecl install redis \
-      && docker-php-ext-enable memcached redis
+      && docker-php-ext-enable memcached redis \
+      && apk del .build-hexindai-deps
