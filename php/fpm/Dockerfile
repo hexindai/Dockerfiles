@@ -54,7 +54,6 @@ RUN set -xe \
                 xmlrpc \
                 xsl \
                 zip \
-      && pecl install memcached \
-      && pecl install redis \
+      && pecl install memcached redis \
       && docker-php-ext-enable memcached redis \
       && apk del .build-hexindai-deps

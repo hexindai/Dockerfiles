@@ -54,9 +54,8 @@ RUN set -xe \
                 xmlrpc \
                 xsl \
                 zip \
-      && pecl install memcached \
-      && pecl install redis \
-      && docker-php-ext-enable memcached redis \
+      && pecl install memcached redis xdebug \
+      && docker-php-ext-enable memcached redis xdebug \
       && apk del .build-hexindai-deps
 
 RUN curl -sS https://getcomposer.org/installer | php \
