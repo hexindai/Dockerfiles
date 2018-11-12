@@ -58,3 +58,6 @@ RUN set -xe \
       && pecl install redis \
       && docker-php-ext-enable memcached redis \
       && apk del .build-hexindai-deps
+
+RUN curl -sS https://getcomposer.org/installer | php \
+      && mv composer.phar /usr/local/bin/composer
