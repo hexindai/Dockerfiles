@@ -35,7 +35,6 @@ RUN set -xe \
                 bcmath \
                 bz2 \
                 calendar \
-                pdo \
                 pdo_mysql \
                 dba \
                 exif \
