@@ -35,7 +35,6 @@ RUN set -xe \
                 bcmath \
                 bz2 \
                 calendar \
-                pdo \
                 pdo_mysql \
                 dba \
                 exif \
@@ -56,7 +55,8 @@ RUN set -xe \
                 zip \
       && pecl install memcached redis xdebug \
       && docker-php-ext-enable memcached redis xdebug \
-      && apk del .build-hexindai-deps
+      && apk del .build-hexindai-deps \
+      && rm -rf /usr/src
 
 RUN curl -sS https://getcomposer.org/installer | php \
       && mv composer.phar /usr/local/bin/composer
