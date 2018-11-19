@@ -60,3 +60,5 @@ RUN set -xe \
 
 RUN curl -sS https://getcomposer.org/installer | php \
       && mv composer.phar /usr/local/bin/composer
+
+USER www-data:www-data
