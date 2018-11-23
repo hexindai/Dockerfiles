@@ -56,7 +56,7 @@ RUN set -xe \
       && pecl install memcached redis xdebug \
       && docker-php-ext-enable memcached redis xdebug \
       && apk del .build-hexindai-deps \
-      && rm -rf /usr/src
+      && docker-php-source delete
 
 COPY php.ini /usr/local/etc/php/php.ini
 

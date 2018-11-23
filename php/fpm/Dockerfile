@@ -55,4 +55,5 @@ RUN set -xe \
                 zip \
       && pecl install memcached redis \
       && docker-php-ext-enable memcached redis \
-      && apk del .build-hexindai-deps
+      && apk del .build-hexindai-deps \
+      && docker-php-source delete
