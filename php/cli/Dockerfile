@@ -58,6 +58,8 @@ RUN set -xe \
       && apk del .build-hexindai-deps \
       && rm -rf /usr/src
 
+COPY php.ini /usr/local/etc/php/php.ini
+
 RUN curl -sS https://getcomposer.org/installer | php \
       && mv composer.phar /usr/local/bin/composer
 
